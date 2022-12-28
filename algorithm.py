@@ -1,3 +1,4 @@
+# First adjust the panchromatic band resampling with the adjacents pixels
 def synpan(i):
   sb=i.select('B8').reduceNeighborhood(**{
   'reducer': ee.Reducer.mean(),
