@@ -1,7 +1,9 @@
 # Pansharpening_Landsat
+
 create a def that make fusion in landsat from Rahaman 2017
 
 PANSHARPENING
+
 Tem versão em portugues abaixo.
 
 "Firstly, we generated a synthetic image known as “Synthetic Pan” image (Syn PAN ) as a function of averaging of the PAN image over a moving kernel of n × n size (i.e., 3 × 3 in this study). Here, we opted to consider a 3 × 3 moving window in order to retain the local variabilities of the reflectance regimes. Secondly, we employed the Syn PAN image in conjunction with PAN and specific MS bands (MS i ) in order to generate pan-sharpened MS bands of interest (i.e., Fused i )."
@@ -37,8 +39,8 @@ img=img.reproject(img.select('B8').projection())
 imgI=synpan(img)
 imgP=paned(imgI)
 
-parRgb={'bands': ['B5','B4', 'B3'], 'min': 0, 'max': 0.5, 'gamma': [0.95, 1.1, 1]}
-parRgbP={'bands': ['B5_pan','B4_pan', 'B3_pan'], 'min': 0, 'max': 0.5, 'gamma': [0.95, 1.1, 1]}
+parRgb={'bands': ['B5','B4', 'B3'], 'min': 0, 'max': 0.5, 'gamma': [0.95, 1.1, 1]}  
+parRgbP={'bands': ['B5_pan','B4_pan', 'B3_pan'], 'min': 0, 'max': 0.5, 'gamma': [0.95, 1.1, 1]}  
 Map.addLayer(img.clip(roi4), parRgb, 'RGB_30')
 Map.addLayer(imgP.clip(roi4), parRgbP, 'RGB_15')
 Map = geemap.Map(location=roi.centroid().coordinates().getInfo()[::-1], zoom_start = 11, width=500, height=500)
